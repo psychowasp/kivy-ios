@@ -4,12 +4,18 @@ E-mail: larrydu88@gmail.com, maho@pagema.net
 """
 
 <<<<<<< HEAD:kivy_ios/recipes/cymunk/__init__.py
+<<<<<<< HEAD:kivy_ios/recipes/cymunk/__init__.py
 from kivy_ios.toolchain import CythonRecipe
 =======
+=======
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/cymunk/__init__.py
 from toolchain import CythonRecipe,shprint
 import os
 from os.path import join
 import sh
+<<<<<<< HEAD:kivy_ios/recipes/cymunk/__init__.py
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/cymunk/__init__.py
+=======
 >>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/cymunk/__init__.py
 
 

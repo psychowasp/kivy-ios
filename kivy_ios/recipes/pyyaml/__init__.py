@@ -1,7 +1,11 @@
 # pure-python package, this can be removed when we'll support any python package
 import os
 import sh
+<<<<<<< HEAD:kivy_ios/recipes/pyyaml/__init__.py
 from kivy_ios.toolchain import PythonRecipe, shprint
+=======
+from toolchain import PythonRecipe, shprint
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/pyyaml/__init__.py
 
 class PyYamlRecipe(PythonRecipe):
     version = "3.11"

@@ -83,9 +83,12 @@ class KiventCoreRecipe(CythonRecipe):
         build_env = self.get_recipe_env(arch)
 
 <<<<<<< HEAD:kivy_ios/recipes/kivent_core/__init__.py
+<<<<<<< HEAD:kivy_ios/recipes/kivent_core/__init__.py
         dest_dir = join(self.ctx.dist_dir, "root", "python")
         build_env['PYTHONPATH'] = join(dest_dir, 'lib', 'python3.7', 'site-packages')
 =======
+=======
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/kivent_core/__init__.py
         dest_dir = join (self.ctx.dist_dir, "root", "python")
         build_env['PYTHONPATH'] = join(dest_dir, 'lib', 'python2.7', 'site-packages')
 >>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/kivent_core/__init__.py

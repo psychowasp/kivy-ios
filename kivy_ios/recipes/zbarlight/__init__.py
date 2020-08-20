@@ -10,8 +10,13 @@ class ZbarLightRecipe(Recipe):
     url = 'https://github.com/Polyconseil/zbarlight/archive/{version}.tar.gz'
     library = "zbarlight.a"
 <<<<<<< HEAD:kivy_ios/recipes/zbarlight/__init__.py
+<<<<<<< HEAD:kivy_ios/recipes/zbarlight/__init__.py
     depends = ['hostpython3', 'python3', 'libzbar']
     pbx_libraries = ["libz", "libbz2", 'libc++', 'libsqlite3', 'CoreMotion']
+=======
+    depends = ['hostpython2','python2', 'libzbar']
+    pbx_libraries = ["libz","libbz2",'libc++','libsqlite3','CoreMotion']
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/zbarlight/__init__.py
 =======
     depends = ['hostpython2','python2', 'libzbar']
     pbx_libraries = ["libz","libbz2",'libc++','libsqlite3','CoreMotion']
@@ -47,6 +52,7 @@ class ZbarLightRecipe(Recipe):
     def install(self):
         arch = list(self.filtered_archs)[0]
 <<<<<<< HEAD:kivy_ios/recipes/zbarlight/__init__.py
+<<<<<<< HEAD:kivy_ios/recipes/zbarlight/__init__.py
         build_dir = join(self.get_build_dir(arch.arch), 'build',
                          'lib.macosx-10.13-x86_64-2.7', 'zbarlight')
         dist_dir = join(self.ctx.dist_dir, 'root', 'python3', 'lib',
@@ -54,10 +60,15 @@ class ZbarLightRecipe(Recipe):
         # Patch before Copying
         # self.apply_patch("zbarlight_1_2.patch")#Issue getting the version, hard coding for now
 =======
+=======
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/zbarlight/__init__.py
         build_dir = join(self.get_build_dir(arch.arch),'build','lib.macosx-10.13-x86_64-2.7','zbarlight')
         dist_dir  = join(self.ctx.dist_dir,'root','python2','lib','python2.7','site-packages','zbarlight')
         #Patch before Copying
         #self.apply_patch("zbarlight_1_2.patch")#Issue getting the version, hard coding for now
+<<<<<<< HEAD:kivy_ios/recipes/zbarlight/__init__.py
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/zbarlight/__init__.py
+=======
 >>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/zbarlight/__init__.py
         copy_tree(build_dir, dist_dir)
         os.remove(join(dist_dir,'_zbarlight.c'))
@@ -65,9 +76,15 @@ class ZbarLightRecipe(Recipe):
 
     def _patch__init__(self):
 <<<<<<< HEAD:kivy_ios/recipes/zbarlight/__init__.py
+<<<<<<< HEAD:kivy_ios/recipes/zbarlight/__init__.py
         init = join(self.ctx.dist_dir, 'root', 'python3', 'lib', 'python3.7',
                     'site-packages', 'zbarlight', "__init__.py")
         shprint(  # noqa: F821
+=======
+        init = join(self.ctx.dist_dir,'root','python2','lib','python2.7',
+                    'site-packages','zbarlight', "__init__.py")
+        shprint(
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/zbarlight/__init__.py
 =======
         init = join(self.ctx.dist_dir,'root','python2','lib','python2.7',
                     'site-packages','zbarlight', "__init__.py")

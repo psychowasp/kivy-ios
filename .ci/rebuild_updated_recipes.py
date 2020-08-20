@@ -11,9 +11,12 @@ import sh
 import shutil
 import subprocess
 <<<<<<< HEAD
+<<<<<<< HEAD
 from fnmatch import fnmatch
 from constants import CORE_RECIPES, BROKEN_RECIPES
 
+=======
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451)
 =======
 >>>>>>> parent of 64bd692... Flake8 CI fixes (#451)
 
@@ -29,6 +32,7 @@ def modified_recipes(branch="origin/master"):
     git_diff = sh.contrib.git.diff("--name-only", branch)
     recipes = set()
     for file_path in git_diff:
+<<<<<<< HEAD
 <<<<<<< HEAD
         if fnmatch(file_path, "kivy_ios/recipes/*/__init__.py\n"):
             recipe = file_path.split("/")[2]
@@ -57,10 +61,21 @@ if __name__ == "__main__":
             recipes.add(recipe)
     return recipes
 
+=======
+        if 'recipes/' in file_path:
+            recipe = file_path.split('/')[1]
+            recipes.add(recipe)
+    return recipes
+
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451)
 if __name__ == "__main__":
     updated_recipes = " ".join(modified_recipes())
     if updated_recipes != '':
         subprocess.run(f"python3 toolchain.py build {updated_recipes}", shell=True, check=True)
     else:
+<<<<<<< HEAD
+        print("Nothing to do. No updated recipes.")
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451)
+=======
         print("Nothing to do. No updated recipes.")
 >>>>>>> parent of 64bd692... Flake8 CI fixes (#451)

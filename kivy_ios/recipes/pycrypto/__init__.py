@@ -1,9 +1,14 @@
 '''Recipe for pycrypto on ios
 '''
 <<<<<<< HEAD:kivy_ios/recipes/pycrypto/__init__.py
+<<<<<<< HEAD:kivy_ios/recipes/pycrypto/__init__.py
 from kivy_ios.toolchain import CythonRecipe, shprint
 from kivy_ios.context_managers import cd
 from os.path import join
+=======
+from toolchain import CythonRecipe, shprint
+from os.path import join, exists
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/pycrypto/__init__.py
 =======
 from toolchain import CythonRecipe, shprint
 from os.path import join, exists
@@ -42,9 +47,14 @@ class PycryptoRecipe(CythonRecipe):
         hostpython = sh.Command(self.ctx.hostpython)
         build_env = arch.get_env()
         dest_dir = join(self.ctx.dist_dir, "root", "python")
+<<<<<<< HEAD:kivy_ios/recipes/pycrypto/__init__.py
         build_env['PYTHONPATH'] = join(dest_dir, 'lib', 'python3.7', 'site-packages')
         with cd(build_dir):
             shprint(hostpython, "setup.py", "install", "--prefix", dest_dir, _env=build_env)
+=======
+        build_env['PYTHONPATH'] = join(dest_dir, 'lib', 'python2.7', 'site-packages')
+        shprint(hostpython, "setup.py", "install", "--prefix", dest_dir, _env=build_env)
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/pycrypto/__init__.py
 
 recipe = PycryptoRecipe()
 
