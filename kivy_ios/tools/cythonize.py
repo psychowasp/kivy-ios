@@ -7,7 +7,6 @@ import subprocess
 # resolve cython executable
 cython = None
 
-
 def resolve_cython():
     global cython
     for executable in ('cython', 'cython-2.7'):
@@ -17,7 +16,6 @@ def resolve_cython():
             if executable in os.listdir(path):
                 cython = os.path.join(path, executable)
                 return
-
 
 def do(fn):
     print('cythonize:', fn)
@@ -49,7 +47,6 @@ def do(fn):
         print('rewrite', fn_c)
         with open(fn_c, 'w') as fd:
             fd.write(data)
-
 
 if __name__ == '__main__':
     print('-- cythonize', sys.argv)

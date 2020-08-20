@@ -1,8 +1,13 @@
 '''Recipe for pycrypto on ios
 '''
+<<<<<<< HEAD:kivy_ios/recipes/pycrypto/__init__.py
 from kivy_ios.toolchain import CythonRecipe, shprint
 from kivy_ios.context_managers import cd
 from os.path import join
+=======
+from toolchain import CythonRecipe, shprint
+from os.path import join, exists
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/pycrypto/__init__.py
 import sh
 
 
@@ -11,7 +16,8 @@ class PycryptoRecipe(CythonRecipe):
     url = "https://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-{version}.tar.gz"
     depends = ["python", "openssl"]
     include_per_arch = True
-    library = "libpycrypto.a"
+    library="libpycrypto.a"
+
 
     def build_arch(self, arch):
         build_env = arch.get_env()
@@ -25,7 +31,9 @@ class PycryptoRecipe(CythonRecipe):
                 "--prefix=/",
                 "--host={}".format(arch),
                 "ac_cv_func_malloc_0_nonnull=yes",
-                "ac_cv_func_realloc_0_nonnull=yes")
+                "ac_cv_func_realloc_0_nonnull=yes",
+               )     
+        hostpython = sh.Command(self.ctx.hostpython)
         super(PycryptoRecipe, self).build_arch(arch)
 
     def install(self):
@@ -38,5 +46,5 @@ class PycryptoRecipe(CythonRecipe):
         with cd(build_dir):
             shprint(hostpython, "setup.py", "install", "--prefix", dest_dir, _env=build_env)
 
-
 recipe = PycryptoRecipe()
+

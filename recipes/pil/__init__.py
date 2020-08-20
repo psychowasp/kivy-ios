@@ -1,4 +1,4 @@
-from kivy_ios.toolchain import Recipe, shprint
+from toolchain import Recipe, shprint
 from os.path import join
 import sh
 import os
@@ -6,11 +6,11 @@ import fnmatch
 
 
 class PillowRecipe(Recipe):
-    version = "6.1.0"
+    version = "2.8.2"
     url = "https://pypi.python.org/packages/source/P/Pillow/Pillow-{version}.tar.gz"
-    library = "libpillow.a"
-    depends = ["hostpython3", "host_setuptools3", "freetype", "libjpeg", "python3", "ios"]
-    python_depends = ["setuptools"]
+    #url = "https://github.com/python-pillow/Pillow/archive/{version}.tar.gz"
+    library = "libpil.a"
+    depends = ["hostpython", "host_setuptools", "pkgresources", "freetype", "libjpeg", "python", "ios"]
     pbx_libraries = ["libz", "libbz2"]
     include_per_arch = True
 
@@ -28,26 +28,30 @@ class PillowRecipe(Recipe):
             " -I{}".format(join(self.ctx.dist_dir, "include", arch.arch, "libjpeg")) +
             " -arch {}".format(arch.arch)
             ])
-        build_env['PATH'] = os.environ['PATH']
         return build_env
 
     def build_arch(self, arch):
+        self.apply_patch('pil_setup.patch')
         build_env = self.get_pil_env(arch)
-        hostpython3 = sh.Command(self.ctx.hostpython)
-        shprint(hostpython3, "setup.py", "build_ext", "--disable-tiff",
-            "--disable-webp", "-g", _env=build_env)
+        #build_dir = self.get_build_dir(arch.arch)
+        hostpython = sh.Command(self.ctx.hostpython)
+        #build_env["PYTHONHOME"] = hostpython
+        # first try to generate .h
+        shprint(hostpython, "setup.py", "build_ext", "-g",
+                _env=build_env)
         self.biglink()
 
     def install(self):
         arch = list(self.filtered_archs)[0]
         build_dir = self.get_build_dir(arch.arch)
         os.chdir(build_dir)
-        hostpython3 = sh.Command(self.ctx.hostpython)
+        hostpython = sh.Command(self.ctx.hostpython)
         build_env = self.get_pil_env(arch)
-        dest_dir = join(self.ctx.dist_dir, "root", "python3")
-        build_env['PYTHONPATH'] = join(dest_dir, 'lib', 'python3.8', 'site-packages')
-        shprint(hostpython3, "setup.py", "install", "--prefix", dest_dir,
-            _env=build_env)
+        dest_dir = join(self.ctx.dist_dir, "root", "python")
+        build_env['PYTHONPATH'] = join(dest_dir, 'lib', 'python2.7', 'site-packages')
+        shprint(hostpython, "-m", "easy_install",
+                "--prefix", dest_dir, "-Z", "./",
+                _env=build_env)
 
     def biglink(self):
         dirs = []
@@ -55,7 +59,7 @@ class PillowRecipe(Recipe):
             if fnmatch.filter(filenames, "*.so.libs"):
                 dirs.append(root)
         cmd = sh.Command(join(self.ctx.root_dir, "tools", "biglink"))
-        shprint(cmd, join(self.build_dir, "libpillow.a"), *dirs)
+        shprint(cmd, join(self.build_dir, "libpil.a"), *dirs)
 
 recipe = PillowRecipe()
 

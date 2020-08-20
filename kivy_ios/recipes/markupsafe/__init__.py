@@ -1,9 +1,7 @@
 # pure-python package, this can be removed when we'll support any python package
 from kivy_ios.toolchain import PythonRecipe, shprint
 from os.path import join
-import sh
-import os
-
+import sh, os
 
 class MarkupSafeRecipe(PythonRecipe):
     version = "1.1.1"
@@ -21,8 +19,9 @@ class MarkupSafeRecipe(PythonRecipe):
         cmd = sh.Command("sed")
         shprint(cmd, "-i", "", "s/,.*Feature//g", "./setup.py", _env=build_env)
         shprint(cmd, "-i", "", "/^speedups = Feature/,/^)$/s/.*//g", "./setup.py", _env=build_env)
-        shprint(cmd, "-i", "", "s/features\['speedups'\].*=.*speedups/pass/g", "./setup.py", _env=build_env)  # noqa: W605
+        shprint(cmd, "-i", "", "s/features\['speedups'\].*=.*speedups/pass/g", "./setup.py", _env=build_env)
         shprint(hostpython, "setup.py", "install", "--prefix", dest_dir, _env=build_env)
 
 
 recipe = MarkupSafeRecipe()
+

@@ -9,7 +9,7 @@ def test_kivy():
     import kivy
     import kivy.event
     import kivy.core.window
-    import kivy.uix.widget  # noqa: F401
+    import kivy.uix.widget
 
 
 def test_audiostream():
@@ -39,7 +39,7 @@ def test_numpy():
 
 
 def test_curly():
-    import curly  # noqa: F401
+    import curly
 
 
 def run_test(f, name):

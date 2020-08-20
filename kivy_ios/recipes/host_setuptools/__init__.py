@@ -1,7 +1,13 @@
+<<<<<<< HEAD:kivy_ios/recipes/host_setuptools/__init__.py
 from kivy_ios.toolchain import Recipe, shprint
 from os.path import join
+=======
+from toolchain import Recipe, shprint
+from os.path import join, exists
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/host_setuptools/__init__.py
 import sh
 import os
+import fnmatch
 import shutil
 
 
@@ -12,7 +18,7 @@ class HostSetuptools(Recipe):
 
     def prebuild_arch(self, arch):
         hostpython = sh.Command(self.ctx.hostpython)
-        sh.curl("-O", "https://bootstrap.pypa.io/ez_setup.py")
+        sh.curl("-O",  "https://bootstrap.pypa.io/ez_setup.py")
         shprint(hostpython, "./ez_setup.py")
         # Extract setuptools egg and remove .pth files. Otherwise subsequent
         # python package installations using setuptools will raise exceptions.
@@ -29,6 +35,5 @@ class HostSetuptools(Recipe):
         os.remove('setuptools.pth')
         os.remove('easy-install.pth')
         shutil.rmtree('EGG-INFO')
-
 
 recipe = HostSetuptools()

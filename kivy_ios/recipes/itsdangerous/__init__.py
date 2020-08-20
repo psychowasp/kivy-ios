@@ -2,8 +2,12 @@
 from kivy_ios.toolchain import PythonRecipe, shprint
 from kivy_ios.context_managers import cd
 from os.path import join
+<<<<<<< HEAD:kivy_ios/recipes/itsdangerous/__init__.py
 import sh
 
+=======
+import sh, os
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/itsdangerous/__init__.py
 
 class ItsDangerousRecipe(PythonRecipe):
     version = "1.1.0"
@@ -20,5 +24,5 @@ class ItsDangerousRecipe(PythonRecipe):
         with cd(build_dir):
             shprint(hostpython, "setup.py", "install", "--prefix", dest_dir, _env=build_env)
 
-
 recipe = ItsDangerousRecipe()
+

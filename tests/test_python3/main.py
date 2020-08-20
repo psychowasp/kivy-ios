@@ -1,6 +1,7 @@
 print("Python 3 running!")
 import sys
 print(f"sys.path: {sys.path}")
+import os
 import traceback
 
 modules_to_tests = [
@@ -20,17 +21,16 @@ for name in modules_to_tests:
 
 # test pyobjus
 print("- import pyobjus start")
-import pyobjus  # noqa: F401
+import pyobjus
 print("- import done")
 from pyobjus import autoclass
 NSNotificationCenter = autoclass("NSNotificationCenter")
 
 # test ios
-import ios  # noqa: F401
+import ios
 
 from kivy.app import App
 from kivy.lang import Builder
-
 
 class TestApp(App):
     def build(self):
@@ -50,6 +50,5 @@ RelativeLayout:
         Widget
 
 """)
-
 
 TestApp().run()

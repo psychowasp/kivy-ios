@@ -1,5 +1,10 @@
+<<<<<<< HEAD:kivy_ios/recipes/numpy/__init__.py
 from kivy_ios.toolchain import CythonRecipe
+=======
+from toolchain import CythonRecipe, shprint
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/numpy/__init__.py
 from os.path import join
+from os import chdir, listdir
 import sh
 import shutil
 

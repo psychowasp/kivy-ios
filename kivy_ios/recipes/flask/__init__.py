@@ -1,15 +1,13 @@
 # pure-python package, this can be removed when we'll support any python package
 from kivy_ios.toolchain import PythonRecipe, shprint
 from os.path import join
-import sh
-import os
-
+import sh, os
 
 class FlaskRecipe(PythonRecipe):
     version = "1.1.2"
     url = "https://github.com/mitsuhiko/flask/archive/{version}.zip"
-    depends = ["python", "jinja2", "werkzeug", "itsdangerous", "click"]
-
+    depends = ["python","jinja2","werkzeug","itsdangerous","click"]
+    
     def install(self):
         arch = list(self.filtered_archs)[0]
         build_dir = self.get_build_dir(arch.arch)
@@ -20,5 +18,5 @@ class FlaskRecipe(PythonRecipe):
         build_env['PYTHONPATH'] = join(dest_dir, 'lib', 'python3.8', 'site-packages')
         shprint(hostpython, "setup.py", "install", "--prefix", dest_dir, _env=build_env)
 
-
 recipe = FlaskRecipe()
+

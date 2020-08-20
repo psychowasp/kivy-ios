@@ -1,5 +1,10 @@
+<<<<<<< HEAD:kivy_ios/recipes/ffpyplayer/__init__.py
 from kivy_ios.toolchain import CythonRecipe
+=======
+from toolchain import CythonRecipe, shprint
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/ffpyplayer/__init__.py
 from os.path import join
+import sh
 
 
 class FFPyplayerRecipe(CythonRecipe):
@@ -18,18 +23,19 @@ class FFPyplayerRecipe(CythonRecipe):
         env["CC"] += " -I{}".format(
             join(self.ctx.dist_dir, "include", arch.arch, "libffi"))
         env["SDL_INCLUDE_DIR"] = join(self.ctx.dist_dir, "include",
-                                      "common", "sdl2")
+            "common", "sdl2")
         env["FFMPEG_INCLUDE_DIR"] = join(self.ctx.dist_dir, "include",
-                                         arch.arch, "ffmpeg")
+            arch.arch, "ffmpeg")
         env["CONFIG_POSTPROC"] = "0"
         return env
 
     def prebuild_arch(self, arch):
         # common to all archs
-        if self.has_marker("patched"):
+        if  self.has_marker("patched"):
             return
         self.apply_patch("misc-visibility.patch")
         self.set_marker("patched")
 
 
 recipe = FFPyplayerRecipe()
+

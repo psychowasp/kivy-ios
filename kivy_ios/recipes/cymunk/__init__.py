@@ -3,7 +3,14 @@ Author: Lawrence Du, Lukasz Mach
 E-mail: larrydu88@gmail.com, maho@pagema.net
 """
 
+<<<<<<< HEAD:kivy_ios/recipes/cymunk/__init__.py
 from kivy_ios.toolchain import CythonRecipe
+=======
+from toolchain import CythonRecipe,shprint
+import os
+from os.path import join
+import sh
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/cymunk/__init__.py
 
 
 class CymunkRecipe(CythonRecipe):

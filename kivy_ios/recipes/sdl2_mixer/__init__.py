@@ -24,5 +24,4 @@ class LibSDL2MixerRecipe(Recipe):
                 "-target", "libSDL_mixer-iOS",
                 "-configuration", "Release")
 
-
 recipe = LibSDL2MixerRecipe()

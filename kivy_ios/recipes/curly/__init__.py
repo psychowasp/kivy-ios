@@ -1,6 +1,5 @@
 from kivy_ios.toolchain import CythonRecipe
 
-
 class CurlyRecipe(CythonRecipe):
     version = "master"
     url = "https://github.com/tito/curly/archive/{version}.zip"

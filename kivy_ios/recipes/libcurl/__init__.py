@@ -1,6 +1,12 @@
+<<<<<<< HEAD:kivy_ios/recipes/libcurl/__init__.py
 from kivy_ios.toolchain import Recipe, shprint
 from os.path import join
+=======
+from toolchain import Recipe, shprint
+from os.path import join, exists
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/libcurl/__init__.py
 import sh
+import os
 
 
 class CurlRecipe(Recipe):
@@ -9,6 +15,7 @@ class CurlRecipe(Recipe):
     library = "lib/.libs/libcurl.a"
     include_dir = "include"
     depends = ["openssl"]
+
 
     def build_arch(self, arch):
         build_env = arch.get_env()
@@ -25,5 +32,6 @@ class CurlRecipe(Recipe):
         shprint(sh.make, "clean")
         shprint(sh.make, self.ctx.concurrent_make)
 
-
 recipe = CurlRecipe()
+
+

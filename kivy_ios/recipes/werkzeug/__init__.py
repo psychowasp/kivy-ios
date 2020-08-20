@@ -1,14 +1,12 @@
 # pure-python package, this can be removed when we'll support any python package
 from kivy_ios.toolchain import PythonRecipe, shprint
 from os.path import join
-import sh
-import os
-
+import sh, os
 
 class WerkzeugRecipe(PythonRecipe):
     version = "1.0.1"
     url = "https://github.com/mitsuhiko/werkzeug/archive/{version}.zip"
-    depends = ["python", "openssl"]
+    depends = ["python","openssl"]
 
     def install(self):
         arch = list(self.filtered_archs)[0]
@@ -20,5 +18,5 @@ class WerkzeugRecipe(PythonRecipe):
         build_env['PYTHONPATH'] = join(dest_dir, 'lib', 'python3.8', 'site-packages')
         shprint(hostpython, "setup.py", "install", "--prefix", dest_dir, _env=build_env)
 
-
 recipe = WerkzeugRecipe()
+
