@@ -1,8 +1,13 @@
 <<<<<<< HEAD:kivy_ios/recipes/ffmpeg/__init__.py
 <<<<<<< HEAD:kivy_ios/recipes/ffmpeg/__init__.py
 <<<<<<< HEAD:kivy_ios/recipes/ffmpeg/__init__.py
+<<<<<<< HEAD:kivy_ios/recipes/ffmpeg/__init__.py
 from kivy_ios.toolchain import Recipe, shprint
 from os.path import join
+=======
+from toolchain import Recipe, shprint
+from os.path import join, exists
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/ffmpeg/__init__.py
 =======
 from toolchain import Recipe, shprint
 from os.path import join, exists

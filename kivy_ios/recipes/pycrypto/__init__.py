@@ -3,9 +3,14 @@
 <<<<<<< HEAD:kivy_ios/recipes/pycrypto/__init__.py
 <<<<<<< HEAD:kivy_ios/recipes/pycrypto/__init__.py
 <<<<<<< HEAD:kivy_ios/recipes/pycrypto/__init__.py
+<<<<<<< HEAD:kivy_ios/recipes/pycrypto/__init__.py
 from kivy_ios.toolchain import CythonRecipe, shprint
 from kivy_ios.context_managers import cd
 from os.path import join
+=======
+from toolchain import CythonRecipe, shprint
+from os.path import join, exists
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/pycrypto/__init__.py
 =======
 from toolchain import CythonRecipe, shprint
 from os.path import join, exists
@@ -60,6 +65,9 @@ class PycryptoRecipe(CythonRecipe):
         build_env['PYTHONPATH'] = join(dest_dir, 'lib', 'python2.7', 'site-packages')
         shprint(hostpython, "setup.py", "install", "--prefix", dest_dir, _env=build_env)
 <<<<<<< HEAD:kivy_ios/recipes/pycrypto/__init__.py
+<<<<<<< HEAD:kivy_ios/recipes/pycrypto/__init__.py
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/pycrypto/__init__.py
+=======
 >>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/pycrypto/__init__.py
 =======
 >>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/pycrypto/__init__.py

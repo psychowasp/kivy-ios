@@ -13,9 +13,12 @@ import subprocess
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 from fnmatch import fnmatch
 from constants import CORE_RECIPES, BROKEN_RECIPES
 
+=======
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451)
 =======
 >>>>>>> parent of 64bd692... Flake8 CI fixes (#451)
 =======
@@ -35,6 +38,7 @@ def modified_recipes(branch="origin/master"):
     git_diff = sh.contrib.git.diff("--name-only", branch)
     recipes = set()
     for file_path in git_diff:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -62,11 +66,14 @@ if __name__ == "__main__":
 =======
 =======
 >>>>>>> parent of 64bd692... Flake8 CI fixes (#451)
+=======
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451)
         if 'recipes/' in file_path:
             recipe = file_path.split('/')[1]
             recipes.add(recipe)
     return recipes
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         if 'recipes/' in file_path:
@@ -74,6 +81,8 @@ if __name__ == "__main__":
             recipes.add(recipe)
     return recipes
 
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451)
+=======
 >>>>>>> parent of 64bd692... Flake8 CI fixes (#451)
 =======
 >>>>>>> parent of 64bd692... Flake8 CI fixes (#451)
@@ -84,6 +93,10 @@ if __name__ == "__main__":
     else:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+        print("Nothing to do. No updated recipes.")
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451)
+=======
         print("Nothing to do. No updated recipes.")
 >>>>>>> parent of 64bd692... Flake8 CI fixes (#451)
 =======
