@@ -2,6 +2,9 @@
 from kivy_ios.toolchain import PythonRecipe
 =======
 from toolchain import PythonRecipe
+<<<<<<< HEAD:kivy_ios/recipes/plyer/__init__.py
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/plyer/__init__.py
+=======
 >>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/plyer/__init__.py
 
 class PlyerRecipe(PythonRecipe):

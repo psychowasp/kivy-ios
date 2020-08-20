@@ -5,6 +5,9 @@ import sh
 from kivy_ios.toolchain import PythonRecipe, shprint
 =======
 from toolchain import PythonRecipe, shprint
+<<<<<<< HEAD:kivy_ios/recipes/pyyaml/__init__.py
+>>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/pyyaml/__init__.py
+=======
 >>>>>>> parent of 64bd692... Flake8 CI fixes (#451):recipes/pyyaml/__init__.py
 
 class PyYamlRecipe(PythonRecipe):
